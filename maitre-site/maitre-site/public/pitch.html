@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Maître · Le due versioni · Cabaret Voltaire</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,900&family=Spectral:ital,wght@0,300;0,400;0,500;0,600&family=JetBrains+Mono:wght@400;500;700&display=swap');
+:root{--ink:#100b0d;--oxblood:#3b0e15;--oxblood2:#561620;--paper:#ece1cd;--paper-dim:#b3a589;
+  --gold:#caa24b;--gold-soft:#e2c785;--line:rgba(202,162,75,.26);--verm:#d6432c;--ok:#7bbf8a;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Spectral',Georgia,serif;color:var(--paper);background:
+  radial-gradient(120% 60% at 85% -5%,rgba(86,22,32,.5),transparent 55%),
+  radial-gradient(80% 50% at 0% 102%,rgba(202,162,75,.07),transparent 50%),var(--ink);
+  line-height:1.62;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+.sheet{max-width:880px;margin:0 auto;padding:0 26px 90px;}
+.bar{display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:9;
+  padding:18px 0;border-bottom:1px solid var(--line);background:linear-gradient(var(--ink),rgba(16,11,13,.85));backdrop-filter:blur(6px);}
+.brand{display:flex;gap:12px;align-items:center;}
+.seal{width:38px;height:38px;border:1.5px solid var(--gold);border-radius:50%;display:flex;align-items:center;
+  justify-content:center;color:var(--gold);font-family:'Fraunces',serif;font-weight:600;transform:rotate(-8deg);}
+.brand h1{font-family:'Fraunces',serif;font-weight:600;font-size:21px;line-height:1;}
+.kick{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.26em;color:var(--gold);text-transform:uppercase;}
+.toggle{display:flex;gap:4px;}
+.toggle button{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  padding:7px 13px;border-radius:999px;border:1px solid var(--line);background:none;color:var(--paper-dim);cursor:pointer;}
+.toggle button.on{background:var(--gold);color:var(--ink);border-color:var(--gold);}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:13px;}
+.hero{padding:54px 0 10px;}
+h2.t{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(32px,5.4vw,52px);line-height:1.0;letter-spacing:-.01em;}
+h2.t em{font-style:italic;color:var(--gold-soft);}
+.lead{font-size:18px;color:var(--paper-dim);max-width:60ch;margin-top:16px;}
+section{margin-top:52px;}
+h3.s{font-family:'Fraunces',serif;font-weight:500;font-size:26px;margin-bottom:6px;}
+.sub{color:var(--paper-dim);margin-bottom:20px;max-width:60ch;}
+.tiers{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.tier{border:1px solid var(--line);border-radius:18px;padding:24px;background:rgba(255,247,233,.03);position:relative;}
+.tier.pro{border-color:var(--gold);background:linear-gradient(180deg,rgba(202,162,75,.09),rgba(255,247,233,.02));}
+.tier .badge{position:absolute;top:-11px;right:18px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;background:var(--gold);color:var(--ink);padding:4px 11px;border-radius:999px;}
+.tier h4{font-family:'Fraunces',serif;font-weight:500;font-size:24px;}
+.tier .price{font-family:'Fraunces',serif;font-size:40px;font-weight:600;margin:6px 0 2px;}
+.tier .price small{font-size:15px;color:var(--paper-dim);font-family:'Spectral',serif;}
+.tier .tagline{color:var(--gold-soft);font-style:italic;margin-bottom:16px;}
+.feat{list-style:none;display:grid;gap:9px;}
+.feat li{position:relative;padding-left:24px;font-size:14.5px;line-height:1.45;}
+.feat li::before{content:"\2726";position:absolute;left:0;color:var(--gold);font-size:12px;top:2px;}
+.feat li.plus::before{content:"\FF0B";color:var(--gold-soft);}
+.matrix{border:1px solid var(--line);border-radius:14px;overflow:hidden;}
+.mrow{display:flex;align-items:center;padding:11px 16px;border-top:1px solid var(--line);font-size:14px;}
+.mrow:first-child{border-top:none;background:rgba(86,22,32,.3);font-family:'JetBrains Mono',monospace;
+  font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);}
+.mrow .f{flex:1;}
+.mrow .c{width:64px;text-align:center;font-family:'JetBrains Mono',monospace;}
+.yes{color:var(--ok);}.no{color:var(--paper-dim);opacity:.5;}
+.chat{display:grid;gap:14px;}
+.snip{border:1px solid var(--line);border-radius:13px;padding:15px 16px;background:rgba(0,0,0,.18);}
+.bubo{font-size:14px;color:var(--gold-soft);font-style:italic;margin-bottom:7px;}
+.bubo::before{content:"\201C";}.bubo::after{content:"\201D";}
+.bubb{font-size:14px;color:#d8cdb6;line-height:1.5;}
+.bubb b{color:var(--gold-soft);font-weight:500;}
+.meter{border:1px solid var(--line);border-radius:13px;padding:18px;background:rgba(255,247,233,.03);margin-top:16px;}
+.meter .h{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:11px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.track{height:9px;border-radius:999px;background:rgba(202,162,75,.18);overflow:hidden;}
+.fill{height:100%;width:71%;background:var(--gold);border-radius:999px;}
+.compare{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+.col{border:1px solid var(--line);border-radius:16px;padding:20px;background:rgba(255,247,233,.03);}
+.col.win{border-color:var(--gold);background:linear-gradient(180deg,rgba(202,162,75,.10),rgba(255,247,233,.02));}
+.col .role{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);}
+.col .cost{font-family:'Fraunces',serif;font-size:30px;font-weight:600;margin:6px 0;line-height:1;}
+.col .cost small{font-size:13px;color:var(--paper-dim);font-family:'Spectral',serif;}
+.col p{font-size:13px;color:var(--paper-dim);margin-top:8px;line-height:1.5;}
+.col .lim{color:var(--verm);opacity:.85;}
+.offer{border:1px dashed var(--gold);border-radius:16px;padding:22px;margin-top:16px;background:rgba(86,22,32,.25);}
+.offer .amt{font-family:'Fraunces',serif;font-size:24px;color:var(--gold-soft);font-style:italic;}
+.loop{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.step{border:1px dashed var(--line);border-radius:12px;padding:15px;text-align:center;}
+.step .n{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;color:var(--gold);}
+.step h5{font-family:'Fraunces',serif;font-weight:500;font-size:16px;margin:6px 0 4px;}
+.step p{font-size:12px;color:var(--paper-dim);line-height:1.4;}
+.cta{display:inline-block;margin-top:22px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;
+  text-transform:uppercase;background:var(--gold);color:var(--ink);padding:15px 28px;border-radius:999px;text-decoration:none;}
+.fine{font-size:12px;color:var(--paper-dim);margin-top:14px;}
+.foot{margin-top:54px;padding-top:18px;border-top:1px solid var(--line);font-family:'JetBrains Mono',monospace;
+  font-size:10px;letter-spacing:.1em;color:var(--paper-dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+@media(max-width:680px){.tiers,.compare{grid-template-columns:1fr;}.loop{grid-template-columns:1fr 1fr;}}
+@media print{.bar{position:static;}.cta{display:none;}body{background:var(--ink);}}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="bar">
+    <div class="brand"><div class="seal">M</div>
+      <div><h1>Maître</h1><div class="kick">per Cabaret Voltaire · Via Panisperna 87</div></div></div>
+    <div class="toggle"><button id="bIt" class="on" onclick="render('it')">IT</button><button id="bEn" onclick="render('en')">EN</button></div>
+  </div>
+  <div id="app"></div>
+  <div class="foot">
+    <span>MAITRE · AI maitre d' for independent venues</span>
+    <span id="footnote"></span>
+  </div>
+</div>
+
+<script>
+const C = {
+  it: {
+    eyebrow: "Le vostre due versioni \u00b7 Basic & Pro",
+    h: ['Due versioni.<br>Un solo ', 'ma\u00eetre', '.'],
+    lead: "Scegliete quanto deve essere intelligente il vostro assistente. Basic pubblica i vostri eventi ovunque, senza fatica. Pro aggiunge un cervello di marketing che conosce il vostro locale e risponde a qualsiasi domanda.",
+    howT: "Come funziona, in entrambe le versioni",
+    howS: "Il proprietario tocca solo Telegram. Voi pensate all'evento, il resto \u00e8 automatico.",
+    steps: [
+      ['1','Scrivi',"Mandi l'evento al bot, in italiano o inglese."],
+      ['2','Compone',"Email, social, locandina e messaggi in 20 secondi."],
+      ['3','Approvi',"Scegli i canali e tocchi \u2705. Niente parte senza il tuo ok."],
+      ['4','Parte',"Email, WhatsApp e post escono, segmentati per gusto."]],
+    tiersT: "Le due versioni in dettaglio",
+    basicName: "Basic", basicPrice: "\u20ac69", basicPer: "/mese",
+    basicTag: "Il vostro pubblicatore di eventi.",
+    basicFeat: [
+      "Bot Telegram dedicato: scrivi l'evento, scegli i canali, approva",
+      "Email bilingui IT/EN dal vostro dominio, con disiscrizione e GDPR",
+      "Caption per Instagram/TikTok + hook per i reel",
+      "Locandina dell'evento on-brand, generata in automatico",
+      "Modulo soci elegante \"Il Salotto\" + lista segmentata per gusto",
+      "Automazioni: benvenuto, compleanno, promemoria pre-evento (meno no-show)",
+      "Calendario social + idee contenuti settimanali",
+      "Pulizia del profilo Google Maps",
+      "Eventi illimitati \u00b7 report mensile essenziale"],
+    proName: "Pro", proPrice: "\u20ac179", proPer: "/mese", proBadge: "consigliato",
+    proTag: "Il vostro cervello di marketing, sempre acceso.",
+    proHead: "Tutto del Basic, pi\u00f9:",
+    proFeat: [
+      "Chat libera col bot: chiedi qualsiasi cosa, in linguaggio naturale",
+      "Memoria del locale: ricorda gli eventi passati e cosa ha funzionato",
+      "Targeting in parole semplici: \"invita i soci 20\u201332 che amano il jazz\"",
+      "Consulenza on-demand: strategie, piani eventi, idee promozioni",
+      "Analisi performance: \"com'\u00e8 andato l'evento poesia del mese scorso?\"",
+      "Suggerimenti proattivi quando una serata \u00e8 debole",
+      "300 conversazioni intelligenti/mese incluse \u00b7 contatore sempre visibile"],
+    matrixT: "Confronto rapido",
+    mhead: ["Funzione","Basic","Pro"],
+    rows: [
+      ["Bot Telegram + pubblicazione eventi",1,1],
+      ["Email + social + locandine automatiche",1,1],
+      ["Selezione canali per evento",1,1],
+      ["Automazioni benvenuto / compleanno / promemoria",1,1],
+      ["Lista soci segmentata",1,1],
+      ["Chat libera con il bot",0,1],
+      ["Memoria del locale",0,1],
+      ["Targeting in linguaggio naturale",0,1],
+      ["Consulenza & strategia on-demand",0,1],
+      ["Analisi delle performance",0,1],
+      ["Suggerimenti proattivi",0,1]],
+    smartT: "Cosa significa \"intelligente\" (solo Pro)",
+    smartS: "Tre esempi reali di conversazione col bot Pro.",
+    snips: [
+      ["Invita al jazz di venerd\u00ec tutti i soci 20\u201332 che amano la musica dal vivo.","Trovati <b>84 soci</b> nel segmento Musica. Preparo l'invito su email + WhatsApp? <b>[S\u00ec] [Modifica]</b>"],
+      ["Il marted\u00ec \u00e8 sempre vuoto. Hai idee?","Proverei un Open Mic ricorrente + calice scontato per studenti, con invito mirato ai soci entro 1 km. Ti scrivo la campagna?"],
+      ["Com'\u00e8 andato l'evento poesia del mese scorso?","<b>42 presenze</b>, +18% sulla media. Il segmento Poesia ha aperto l'email al 61%. Lo ripetiamo a fine mese?"]],
+    meterLabel: "Conversazioni intelligenti \u00b7 questo mese",
+    meterNote: "Sempre visibile dal bot con /usage. Si azzera il 1\u00b0 del mese. Nessuna sorpresa in bolletta.",
+    costT: "Quanto costa, rispetto a un addetto marketing",
+    costS: "Per lo stesso lavoro \u2014 e molto di pi\u00f9 \u2014 un locale paga normalmente cos\u00ec:",
+    cols: [
+      ["Dipendente interno","~\u20ac2.000\u20132.700","/mese (costo reale)","Solo social. Orari fissi, ferie, malattia, da gestire. Costo reale = stipendio + contributi + TFR + tredicesima.",true],
+      ["Freelance","~\u20ac300\u2013800","/mese","Solo social, poche ore, qualche post a settimana. Strategia ed eventi spesso esclusi o a parte.",true],
+      ["Maître Pro","\u20ac179","/mese","Email + social + WhatsApp + eventi + soci + targeting + strategia. 24/7, nessuna ferie, nessuna gestione.",false]],
+    winNote: "Maître Pro fa di pi\u00f9, costa una frazione, e non va in vacanza.",
+    priceT: "Avvio & condizioni",
+    setup: "Avvio (una tantum): \u20ac390 \u2014 bot, agente, modulo soci, autenticazione email, import + ri-consenso dei 400, 2 template locandina.",
+    annual: "Sconto \u221220% sul pagamento annuale, su entrambe le versioni.",
+    wa: "WhatsApp (opzionale): +\u20ac60/mese, con i costi Meta a consumo fatturati al costo.",
+    offerTag: "Offerta socio fondatore \u00b7 solo Cabaret Voltaire",
+    offerAmt: "\u20ac290 avvio + 6 mesi a met\u00e0 prezzo",
+    offerNote: "In cambio di una breve testimonianza video e di 3 presentazioni ad altri locali.",
+    measureT: "Cosa misuriamo",
+    measure: "Niente promesse di follower. Iscritti a settimana \u00b7 prenotazioni e presenze \u00b7 riduzione dei no-show \u00b7 clienti che ritornano. Report mensile, due righe, dentro Telegram.",
+    cta: "Iniziamo con un evento \u2192",
+    foot: "Fonti stipendi: Indeed, Glassdoor, Talent.com (2026) \u00b7 prezzi indicativi \u00b7 bozza"
+  },
+  en: {
+    eyebrow: "Your two versions \u00b7 Basic & Pro",
+    h: ['Two versions.<br>One ', 'ma\u00eetre', '.'],
+    lead: "Choose how smart your assistant should be. Basic publishes your events everywhere, effortlessly. Pro adds a marketing brain that knows your venue and answers any question.",
+    howT: "How it works, in both versions",
+    howS: "The owner only ever touches Telegram. You think about the event; the rest is automatic.",
+    steps: [
+      ['1','Write',"Text the event to the bot, in Italian or English."],
+      ['2','Compose',"Email, social, poster and messages in 20 seconds."],
+      ['3','Approve',"Pick channels and tap \u2705. Nothing sends without your ok."],
+      ['4','Send',"Email, WhatsApp and posts go out, segmented by taste."]],
+    tiersT: "The two versions in detail",
+    basicName: "Basic", basicPrice: "\u20ac69", basicPer: "/mo",
+    basicTag: "Your event publisher.",
+    basicFeat: [
+      "Dedicated Telegram bot: write the event, choose channels, approve",
+      "Bilingual IT/EN email from your own domain, with unsubscribe & GDPR",
+      "Instagram/TikTok captions + reel hooks",
+      "On-brand event poster, generated automatically",
+      "Elegant \"Il Salotto\" member sign-up + taste-segmented list",
+      "Automations: welcome, birthday, pre-event reminder (fewer no-shows)",
+      "Social calendar + weekly content ideas",
+      "Google Maps profile cleanup",
+      "Unlimited events \u00b7 essential monthly report"],
+    proName: "Pro", proPrice: "\u20ac179", proPer: "/mo", proBadge: "recommended",
+    proTag: "Your marketing brain, always on.",
+    proHead: "Everything in Basic, plus:",
+    proFeat: [
+      "Free chat with the bot: ask anything, in plain language",
+      "Venue memory: remembers past events and what worked",
+      "Plain-words targeting: \"invite members 20\u201332 who love jazz\"",
+      "On-demand advice: strategy, event plans, promo ideas",
+      "Performance analysis: \"how did last month's poetry night do?\"",
+      "Proactive suggestions when a night is weak",
+      "300 smart conversations/mo included \u00b7 meter always visible"],
+    matrixT: "Quick comparison",
+    mhead: ["Feature","Basic","Pro"],
+    rows: [
+      ["Telegram bot + event publishing",1,1],
+      ["Email + social + auto posters",1,1],
+      ["Per-event channel selection",1,1],
+      ["Welcome / birthday / reminder automations",1,1],
+      ["Taste-segmented member list",1,1],
+      ["Free chat with the bot",0,1],
+      ["Venue memory",0,1],
+      ["Natural-language targeting",0,1],
+      ["On-demand advice & strategy",0,1],
+      ["Performance analysis",0,1],
+      ["Proactive suggestions",0,1]],
+    smartT: "What \"smart\" means (Pro only)",
+    smartS: "Three real conversations with the Pro bot.",
+    snips: [
+      ["Invite all members 20\u201332 who love live music to Friday's jazz.","Found <b>84 members</b> in the Music segment. Shall I prep the invite over email + WhatsApp? <b>[Yes] [Edit]</b>"],
+      ["Tuesdays are always empty. Any ideas?","I'd try a recurring Open Mic + a student discount, with a targeted invite to members within 1 km. Want me to draft the campaign?"],
+      ["How did last month's poetry night do?","<b>42 attendees</b>, +18% vs average. The Poetry segment opened the email at 61%. Repeat it end of month?"]],
+    meterLabel: "Smart conversations \u00b7 this month",
+    meterNote: "Always visible in the bot via /usage. Resets on the 1st. No billing surprises.",
+    costT: "What it costs, versus hiring a marketing person",
+    costS: "For the same work \u2014 and far more \u2014 a venue normally pays:",
+    cols: [
+      ["In-house employee","~\u20ac2,000\u20132,700","/mo (true cost)","Social only. Fixed hours, holidays, sick days, must be managed. True cost = salary + contributions + TFR + 13th month.",true],
+      ["Freelancer","~\u20ac300\u2013800","/mo","Social only, few hours, a few posts a week. Strategy and events often excluded or extra.",true],
+      ["Maître Pro","\u20ac179","/mo","Email + social + WhatsApp + events + members + targeting + strategy. 24/7, no holidays, no managing.",false]],
+    winNote: "Maître Pro does more, costs a fraction, and never takes a holiday.",
+    priceT: "Setup & terms",
+    setup: "Setup (one-off): \u20ac390 \u2014 bot, agent, member sign-up, email authentication, import + re-permission of the 400, 2 poster templates.",
+    annual: "\u221220% discount on annual payment, on both versions.",
+    wa: "WhatsApp (optional): +\u20ac60/mo, with Meta's per-message fees passed through at cost.",
+    offerTag: "Founding-partner offer \u00b7 Cabaret Voltaire only",
+    offerAmt: "\u20ac290 setup + 6 months at half price",
+    offerNote: "In exchange for a short video testimonial and 3 introductions to other venues.",
+    measureT: "What we measure",
+    measure: "No follower promises. Sign-ups per week \u00b7 RSVPs and attendance \u00b7 no-show reduction \u00b7 returning guests. A two-line monthly report, inside Telegram.",
+    cta: "Let's start with one event \u2192",
+    foot: "Salary sources: Indeed, Glassdoor, Talent.com (2026) \u00b7 indicative pricing \u00b7 draft"
+  }
+};
+
+function mark(v){return v ? '<span class="yes">\u2713</span>' : '<span class="no">\u2014</span>';}
+
+function render(lang){
+  const t = C[lang];
+  document.documentElement.lang = lang;
+  document.getElementById('bIt').classList.toggle('on', lang==='it');
+  document.getElementById('bEn').classList.toggle('on', lang==='en');
+  document.getElementById('footnote').textContent = t.foot;
+
+  const steps = t.steps.map(s=>'<div class="step"><div class="n">'+s[0]+'</div><h5>'+s[1]+'</h5><p>'+s[2]+'</p></div>').join('');
+  const bfeat = t.basicFeat.map(f=>'<li>'+f+'</li>').join('');
+  const pfeat = t.proFeat.map(f=>'<li class="plus">'+f+'</li>').join('');
+  const rows = '<div class="mrow"><div class="f">'+t.mhead[0]+'</div><div class="c">'+t.mhead[1]+'</div><div class="c">'+t.mhead[2]+'</div></div>'
+    + t.rows.map(r=>'<div class="mrow"><div class="f">'+r[0]+'</div><div class="c">'+mark(r[1])+'</div><div class="c">'+mark(r[2])+'</div></div>').join('');
+  const snips = t.snips.map(s=>'<div class="snip"><div class="bubo">'+s[0]+'</div><div class="bubb">'+s[1]+'</div></div>').join('');
+  const cols = t.cols.map(c=>'<div class="col '+(c[4]?'':'win')+'"><div class="role">'+c[0]+'</div><div class="cost">'+c[1]+'<small>'+c[2]+'</small></div><p '+(c[4]?'class="lim"':'')+'>'+c[3]+'</p></div>').join('');
+
+  document.getElementById('app').innerHTML =
+    '<div class="hero"><div class="eyebrow">'+t.eyebrow+'</div>'+
+    '<h2 class="t">'+t.h[0]+'<em>'+t.h[1]+'</em>'+t.h[2]+'</h2>'+
+    '<p class="lead">'+t.lead+'</p></div>'+
+
+    '<section><h3 class="s">'+t.howT+'</h3><p class="sub">'+t.howS+'</p>'+
+    '<div class="loop">'+steps+'</div></section>'+
+
+    '<section><h3 class="s">'+t.tiersT+'</h3><div class="tiers">'+
+      '<div class="tier"><h4>'+t.basicName+'</h4>'+
+        '<div class="price">'+t.basicPrice+'<small>'+t.basicPer+'</small></div>'+
+        '<div class="tagline">'+t.basicTag+'</div><ul class="feat">'+bfeat+'</ul></div>'+
+      '<div class="tier pro"><div class="badge">'+t.proBadge+'</div><h4>'+t.proName+'</h4>'+
+        '<div class="price">'+t.proPrice+'<small>'+t.proPer+'</small></div>'+
+        '<div class="tagline">'+t.proTag+'</div>'+
+        '<div style="font-family:\'JetBrains Mono\',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:9px;">'+t.proHead+'</div>'+
+        '<ul class="feat">'+pfeat+'</ul></div>'+
+    '</div></section>'+
+
+    '<section><h3 class="s">'+t.matrixT+'</h3><div class="matrix">'+rows+'</div></section>'+
+
+    '<section><h3 class="s">'+t.smartT+'</h3><p class="sub">'+t.smartS+'</p>'+
+    '<div class="chat">'+snips+'</div>'+
+    '<div class="meter"><div class="h"><span>'+t.meterLabel+'</span><span>212 / 300</span></div>'+
+    '<div class="track"><div class="fill"></div></div><p class="fine">'+t.meterNote+'</p></div></section>'+
+
+    '<section><h3 class="s">'+t.costT+'</h3><p class="sub">'+t.costS+'</p>'+
+    '<div class="compare">'+cols+'</div>'+
+    '<p class="fine" style="color:var(--gold-soft);font-size:14px;margin-top:14px;">'+t.winNote+'</p></section>'+
+
+    '<section><h3 class="s">'+t.priceT+'</h3><ul class="feat" style="gap:11px;">'+
+    '<li>'+t.setup+'</li><li>'+t.annual+'</li><li>'+t.wa+'</li></ul>'+
+    '<div class="offer"><div class="role" style="font-family:\'JetBrains Mono\',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);">'+t.offerTag+'</div>'+
+    '<div class="amt">'+t.offerAmt+'</div><p class="fine" style="font-size:14px;">'+t.offerNote+'</p></div></section>'+
+
+    '<section><h3 class="s">'+t.measureT+'</h3><p class="sub">'+t.measure+'</p>'+
+    '<a class="cta" href="#">'+t.cta+'</a></section>';
+}
+render('it');
+</script>
+</body>
+</html>

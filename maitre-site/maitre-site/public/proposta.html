@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Maître · Proposta · Cabaret Voltaire</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,900&family=Spectral:ital,wght@0,300;0,400;0,500;0,600&family=JetBrains+Mono:wght@400;500;700&display=swap');
+:root{--ink:#100b0d;--oxblood:#3b0e15;--oxblood2:#561620;--paper:#ece1cd;--paper-dim:#b3a589;
+  --gold:#caa24b;--gold-soft:#e2c785;--line:rgba(202,162,75,.26);--verm:#d6432c;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Spectral',Georgia,serif;color:var(--paper);background:
+  radial-gradient(120% 70% at 85% -5%,rgba(86,22,32,.5),transparent 55%),
+  radial-gradient(90% 60% at 0% 105%,rgba(202,162,75,.08),transparent 50%),var(--ink);
+  line-height:1.6;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+.sheet{max-width:840px;margin:0 auto;padding:46px 30px 80px;}
+.bar{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:34px;}
+.brand{display:flex;gap:12px;align-items:center;}
+.seal{width:40px;height:40px;border:1.5px solid var(--gold);border-radius:50%;display:flex;align-items:center;
+  justify-content:center;color:var(--gold);font-family:'Fraunces',serif;font-weight:600;transform:rotate(-8deg);}
+.brand h1{font-family:'Fraunces',serif;font-weight:600;font-size:22px;line-height:1;}
+.kick{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.28em;color:var(--gold);text-transform:uppercase;}
+.toggle{display:flex;gap:4px;}
+.toggle button{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:none;color:var(--paper-dim);cursor:pointer;}
+.toggle button.on{background:var(--gold);color:var(--ink);border-color:var(--gold);}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+h2.title{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(30px,5vw,46px);line-height:1.02;letter-spacing:-.01em;margin-bottom:14px;}
+h2.title em{font-style:italic;color:var(--gold-soft);}
+.lead{font-size:18px;color:var(--paper-dim);max-width:60ch;margin-bottom:14px;}
+.section{margin-top:40px;}
+.section h3{font-family:'Fraunces',serif;font-weight:500;font-size:24px;margin-bottom:14px;color:var(--paper);}
+.muted{color:var(--paper-dim);}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.cardlet{border:1px solid var(--line);border-radius:13px;padding:18px;background:rgba(255,247,233,.03);}
+.cardlet .n{font-family:'JetBrains Mono',monospace;color:var(--gold);font-size:11px;letter-spacing:.2em;}
+.cardlet h4{font-family:'Fraunces',serif;font-weight:500;font-size:18px;margin:6px 0;}
+.cardlet p{font-size:13.5px;color:var(--paper-dim);}
+ul.tick{list-style:none;display:grid;gap:9px;}
+ul.tick li{position:relative;padding-left:26px;font-size:15px;}
+ul.tick li::before{content:"✦";position:absolute;left:0;color:var(--gold);}
+.prices{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px;}
+.price{border:1px solid var(--line);border-radius:16px;padding:22px;background:rgba(255,247,233,.03);position:relative;}
+.price.feat{border-color:var(--gold);background:linear-gradient(180deg,rgba(202,162,75,.10),rgba(255,247,233,.02));}
+.price .tag{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);}
+.price .amt{font-family:'Fraunces',serif;font-size:38px;font-weight:600;line-height:1;margin:8px 0;}
+.price .amt small{font-size:15px;color:var(--paper-dim);font-family:'Spectral',serif;}
+.price ul{list-style:none;display:grid;gap:6px;margin-top:12px;}
+.price li{font-size:13px;color:var(--paper-dim);padding-left:18px;position:relative;}
+.price li::before{content:"·";position:absolute;left:4px;color:var(--gold);}
+.offer{border:1px dashed var(--gold);border-radius:16px;padding:22px;margin-top:16px;background:rgba(86,22,32,.25);}
+.offer .amt{font-family:'Fraunces',serif;font-size:26px;color:var(--gold-soft);font-style:italic;}
+.fine{font-size:12.5px;color:var(--paper-dim);border-top:1px solid var(--line);margin-top:14px;padding-top:10px;}
+.cta{display:inline-block;margin-top:20px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;
+  text-transform:uppercase;background:var(--gold);color:var(--ink);padding:15px 26px;border-radius:999px;text-decoration:none;}
+.foot{margin-top:46px;padding-top:18px;border-top:1px solid var(--line);font-family:'JetBrains Mono',monospace;
+  font-size:10.5px;letter-spacing:.1em;color:var(--paper-dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.lang{display:none;}.lang.show{display:block;}
+@media(max-width:680px){.grid3{grid-template-columns:1fr}.prices{grid-template-columns:1fr}.toggle{display:none;}.lang{display:block;}}
+@media print{.toggle{display:none;}body{background:var(--ink);}.cta{display:none;}.lang{display:block;}.sheet{padding-top:24px;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="bar">
+    <div class="brand"><div class="seal">M</div>
+      <div><h1>Maître</h1><div class="kick">per Cabaret Voltaire · Via Panisperna 87</div></div></div>
+    <div class="toggle"><button id="bIt" class="on" onclick="setLang('it')">Italiano</button><button id="bEn" onclick="setLang('en')">English</button></div>
+  </div>
+
+  <!-- ITALIANO -->
+  <div class="lang show" id="it">
+    <div class="eyebrow">Proposta di collaborazione · bozza</div>
+    <h2 class="title">Voi pensate all'<em>evento</em>.<br>Al resto pensa il <em>Maître</em>.</h2>
+    <p class="lead">Ogni settimana il vostro evento viene riscritto a mano cinque volte — Eventbrite, Meetup, Instagram, email. Maître lo trasforma in un solo gesto: scrivete l'evento a un bot su Telegram e ricevete email, post, locandina e messaggi pronti da approvare con un tap. La vostra lista soci diventa un pubblico che torna.</p>
+
+    <div class="section"><h3>Il sistema, in tre tempi</h3>
+      <div class="grid3">
+        <div class="cardlet"><div class="n">I · CAPTURE</div><h4>Il Salotto</h4><p>Un modulo soci elegante (non un Google Form) raccoglie un contatto + i gusti, con consenso GDPR pulito. Calice di benvenuto incluso.</p></div>
+        <div class="cardlet"><div class="n">II · COMPOSE</div><h4>Il Maître</h4><p>Scrivete l'evento al bot. L'agente prepara email IT/EN, caption, hook per i reel, locandina e broadcast WhatsApp sul vostro tono.</p></div>
+        <div class="cardlet"><div class="n">III · CONVERT</div><h4>Il ritorno</h4><p>Invii segmentati per gusto, promemoria che riducono i no-show, calice in omaggio nel mese del compleanno.</p></div>
+      </div>
+    </div>
+
+    <div class="section"><h3>Cosa è incluso</h3>
+      <ul class="tick">
+        <li>Bot Telegram dedicato — il proprietario scrive l'evento, sceglie i canali (email / WhatsApp / Instagram), approva. Niente parte senza il suo ok.</li>
+        <li>Email bilingui IT/EN dal vostro dominio (eventi@…), con segmentazione e disiscrizione automatica.</li>
+        <li>Locandine evento on-brand generate dalla descrizione, sempre con testo corretto.</li>
+        <li>Caption e idee per Instagram/TikTok + calendario di pubblicazione (il video lo girate voi, noi lo trasformiamo in contenuto).</li>
+        <li>Automazioni: benvenuto, compleanno, promemoria pre-evento.</li>
+        <li>Pulizia del profilo Google Maps (dove la gente cerca “cocktail bar Monti stasera”).</li>
+        <li>Import + ri-consenso della lista esistente (400 contatti) a norma GDPR.</li>
+      </ul>
+    </div>
+
+    <div class="section"><h3>Investimento</h3>
+      <div class="prices">
+        <div class="price"><div class="tag">Avvio · una tantum</div><div class="amt">€390</div>
+          <ul><li>Configurazione bot + agente</li><li>Modulo soci personalizzato</li><li>Autenticazione dominio email</li><li>Import + ri-consenso dei 400</li><li>2 template locandina</li></ul></div>
+        <div class="price feat"><div class="tag">Abbonamento · base</div><div class="amt">€69<small>/mese</small></div>
+          <ul><li>Eventi illimitati via bot</li><li>Email IT/EN segmentate</li><li>Caption social + locandine</li><li>Automazioni benvenuto/compleanno/promemoria</li><li>Annuale −20%</li></ul></div>
+      </div>
+      <div class="offer"><div class="tag" style="color:var(--gold)">Offerta socio fondatore · solo Cabaret Voltaire</div>
+        <div class="amt">€290 avvio + €49/mese per i primi 6 mesi</div>
+        <p class="muted" style="font-size:14px;margin-top:6px">In cambio di una breve testimonianza video e di 3 presentazioni ad altri locali. Dal 7° mese: €69/mese.</p></div>
+      <p class="fine"><strong style="color:var(--gold-soft)">WhatsApp (opzionale):</strong> +€60/mese, con i costi Meta a consumo (pochi centesimi a messaggio, fatturati al costo). WhatsApp ha tassi di apertura altissimi ma è un canale a pagamento: consigliato per gli eventi importanti, non per ogni invio.</p>
+    </div>
+
+    <div class="section"><h3>Cosa misuriamo</h3>
+      <p class="muted">Niente promesse di follower. Iscritti a settimana · prenotazioni e presenze agli eventi · riduzione dei no-show · clienti che ritornano. Report mensile, due righe, dentro Telegram.</p>
+      <a class="cta" href="#">Iniziamo con un evento →</a>
+    </div>
+  </div>
+
+  <!-- ENGLISH -->
+  <div class="lang" id="en">
+    <div class="eyebrow">Partnership proposal · draft</div>
+    <h2 class="title">You think about the <em>event</em>.<br>The <em>Maître</em> does the rest.</h2>
+    <p class="lead">Every week your event gets rewritten five times by hand — Eventbrite, Meetup, Instagram, email. Maître turns it into a single move: text the event to a Telegram bot and get email, posts, a poster and messages ready to approve with one tap. Your member list becomes an audience that comes back.</p>
+
+    <div class="section"><h3>The system, in three acts</h3>
+      <div class="grid3">
+        <div class="cardlet"><div class="n">I · CAPTURE</div><h4>The Salon</h4><p>An elegant member sign-up (not a Google Form) collects one contact + tastes, with clean GDPR consent. Welcome drink included.</p></div>
+        <div class="cardlet"><div class="n">II · COMPOSE</div><h4>The Maître</h4><p>Text the event to the bot. The agent drafts IT/EN email, captions, reel hooks, a poster and a WhatsApp broadcast in your voice.</p></div>
+        <div class="cardlet"><div class="n">III · CONVERT</div><h4>The return</h4><p>Taste-segmented sends, reminders that cut no-shows, a free glass in the guest's birthday month.</p></div>
+      </div>
+    </div>
+
+    <div class="section"><h3>What's included</h3>
+      <ul class="tick">
+        <li>A dedicated Telegram bot — you write the event, choose channels (email / WhatsApp / Instagram), approve. Nothing sends without your ok.</li>
+        <li>Bilingual IT/EN email from your own domain, with segmentation and automatic unsubscribe.</li>
+        <li>On-brand event posters generated from the description — text always correct.</li>
+        <li>Instagram/TikTok captions & ideas + a posting schedule (you film; we turn it into content).</li>
+        <li>Automations: welcome, birthday, pre-event reminder.</li>
+        <li>Google Maps profile cleanup (where people search "cocktail bar Monti tonight").</li>
+        <li>Import + GDPR re-permission of your existing list (400 contacts).</li>
+      </ul>
+    </div>
+
+    <div class="section"><h3>Investment</h3>
+      <div class="prices">
+        <div class="price"><div class="tag">Setup · one-off</div><div class="amt">€390</div>
+          <ul><li>Bot + agent configuration</li><li>Custom member sign-up</li><li>Email domain authentication</li><li>Import + re-permission of the 400</li><li>2 poster templates</li></ul></div>
+        <div class="price feat"><div class="tag">Subscription · base</div><div class="amt">€69<small>/mo</small></div>
+          <ul><li>Unlimited events via bot</li><li>Segmented IT/EN email</li><li>Social captions + posters</li><li>Welcome/birthday/reminder automations</li><li>Annual −20%</li></ul></div>
+      </div>
+      <div class="offer"><div class="tag" style="color:var(--gold)">Founding-partner offer · Cabaret Voltaire only</div>
+        <div class="amt">€290 setup + €49/mo for the first 6 months</div>
+        <p class="muted" style="font-size:14px;margin-top:6px">In exchange for a short video testimonial and 3 introductions to other venues. From month 7: €69/mo.</p></div>
+      <p class="fine"><strong style="color:var(--gold-soft)">WhatsApp (optional):</strong> +€60/mo, with Meta's per-message fees passed through at cost (a few cents per message). WhatsApp has very high open rates but is a paid channel: recommended for marquee events, not every send.</p>
+    </div>
+
+    <div class="section"><h3>What we measure</h3>
+      <p class="muted">No follower promises. Sign-ups per week · event RSVPs and attendance · no-show reduction · returning guests. A two-line monthly report, inside Telegram.</p>
+      <a class="cta" href="#">Let's start with one event →</a>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span>MAÎTRE · AI maître d' for independent venues</span>
+    <span>Bozza / draft · prezzi indicativi · No.87 Via Panisperna, Monti, Roma</span>
+  </div>
+</div>
+<script>
+function setLang(l){
+  document.getElementById('it').classList.toggle('show', l==='it');
+  document.getElementById('en').classList.toggle('show', l==='en');
+  document.getElementById('bIt').classList.toggle('on', l==='it');
+  document.getElementById('bEn').classList.toggle('on', l==='en');
+  document.documentElement.lang=l;
+}
+</script>
+</body>
+</html>

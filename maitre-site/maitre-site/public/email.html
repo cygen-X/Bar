@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Maître · Email evento · Cabaret Voltaire</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,600;1,6..96,500&family=Hanken+Grotesk:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+:root{--ink:#100b0d;--oxblood:#3b0e15;--oxblood2:#561620;--paper:#ece1cd;--paper-dim:#b3a589;--gold:#caa24b;--gold-soft:#e2c785;--line:rgba(202,162,75,.26);}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Hanken Grotesk',sans-serif;background:#15171c;color:var(--paper);padding:26px 14px 60px;line-height:1.6;}
+.bar{max-width:600px;margin:0 auto 16px;display:flex;justify-content:space-between;align-items:center;}
+.bar .lab{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#7d8590;}
+.toggle{display:flex;gap:4px;}
+.toggle button{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;padding:6px 12px;border-radius:999px;border:1px solid #2d333b;background:none;color:#9aa3ad;cursor:pointer;}
+.toggle button.on{background:var(--gold);color:var(--ink);border-color:var(--gold);}
+.client{max-width:600px;margin:0 auto;background:#1c1f26;border:1px solid #2d333b;border-radius:14px;overflow:hidden;}
+.chead{padding:14px 18px;border-bottom:1px solid #2d333b;}
+.crow{display:flex;gap:8px;font-size:13px;color:#9aa3ad;}
+.crow b{color:#e6edf3;font-weight:500;}
+.csubj{font-size:15px;color:#e6edf3;font-weight:600;margin-top:6px;}
+.cprev{font-size:12.5px;color:#7d8590;margin-top:2px;}
+/* the email itself */
+.mail{background:var(--ink);}
+.inner{max-width:600px;margin:0 auto;}
+.hdr{text-align:center;padding:26px 24px 14px;border-bottom:1px solid var(--line);}
+.wm{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.34em;color:var(--gold);}
+.wm2{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.24em;color:var(--paper-dim);margin-top:5px;}
+.hero{position:relative;padding:46px 28px;text-align:center;background:radial-gradient(120% 90% at 30% 10%,var(--oxblood2),var(--ink));border-bottom:1px solid var(--line);}
+.kick{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);}
+.title{font-family:'Bodoni Moda',serif;font-style:italic;font-weight:600;font-size:46px;line-height:1.02;color:var(--paper);margin:12px 0 8px;}
+.when{font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.06em;color:var(--gold-soft);}
+.body{padding:30px 30px 8px;font-size:16px;color:#d8cdb6;line-height:1.7;}
+.body p{margin-bottom:14px;}
+.detail{margin:8px 30px 0;border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:grid;gap:8px;}
+.detail div{font-size:14px;color:var(--paper);display:flex;gap:10px;}
+.detail span{color:var(--gold);width:18px;}
+.ctawrap{text-align:center;padding:26px 30px 6px;}
+.cta{display:inline-block;background:var(--gold);color:var(--ink);text-decoration:none;font-weight:600;font-size:15px;padding:15px 34px;border-radius:999px;}
+.cta2{display:block;margin-top:12px;font-size:13px;color:var(--gold-soft);text-decoration:none;}
+.foot{padding:24px 30px 30px;margin-top:18px;border-top:1px solid var(--line);text-align:center;}
+.foot p{font-size:11.5px;color:var(--paper-dim);line-height:1.6;margin-bottom:8px;}
+.foot a{color:var(--gold-soft);}
+.lang{display:none;}.lang.show{display:block;}
+</style>
+</head>
+<body>
+<div class="bar">
+  <span class="lab">Anteprima email · come la vede il socio</span>
+  <div class="toggle"><button id="bIt" class="on" onclick="setL('it')">IT</button><button id="bEn" onclick="setL('en')">EN</button></div>
+</div>
+
+<div class="client">
+  <div class="chead">
+    <div class="crow"><span id="fromL">Da</span> <b>Cabaret Voltaire</b> &lt;eventi@galleriacabaretvoltaire.it&gt;</div>
+    <div class="csubj" id="subj"></div>
+    <div class="cprev" id="prev"></div>
+  </div>
+
+  <div class="mail"><div class="inner">
+    <div class="hdr"><div class="wm">CABARET VOLTAIRE</div><div class="wm2">ART &amp; DRINK CLUB · RIONE MONTI</div></div>
+    <div class="hero">
+      <div class="kick" id="kick"></div>
+      <div class="title">Jazz al Cabaret</div>
+      <div class="when" id="when"></div>
+    </div>
+    <div class="body" id="body"></div>
+    <div class="detail">
+      <div><span>◷</span><span id="d1"></span></div>
+      <div><span>⌖</span>Via Panisperna 87, Rione Monti, Roma</div>
+      <div><span>♪</span><span id="d3"></span></div>
+    </div>
+    <div class="ctawrap">
+      <a class="cta" id="cta" href="#"></a>
+      <a class="cta2" id="cta2" href="#"></a>
+    </div>
+    <div class="foot">
+      <p id="why"></p>
+      <p><a href="#" id="unsub"></a> · <a href="#" id="pref"></a></p>
+      <p>Cabaret Voltaire · Via Panisperna 87 · 00184 Roma · @cabaretvoltaireroma</p>
+    </div>
+  </div></div>
+</div>
+
+<script>
+const T={
+ it:{from:"Da",subj:"Venerdì il jazz prende il Cabaret 🎷",prev:"Trio dal vivo, posti limitati, cocktail d'autore — ti aspettiamo.",
+  kick:"Musica dal vivo · Venerdì",when:"VEN 14 GIU · 21:30",
+  body:["Caro socio,","Venerdì il salotto si accende: un trio jazz dal vivo, luci basse, e i nostri cocktail d'autore. Una di quelle serate in cui Monti somiglia ancora alla Parigi degli anni Venti.","I posti sono pochi e si riempiono in fretta — ti consigliamo di prenotare il tuo tavolo."],
+  d1:"Venerdì 14 giugno, ore 21:30 (apertura 19:00)",d3:"Trio jazz dal vivo + DJ set fino a tarda notte",
+  cta:"Prenota il tuo tavolo",cta2:"Aggiungi al calendario",
+  why:"Ricevi questa email perché sei socio del circolo Cabaret Voltaire e hai scelto di ricevere gli inviti agli eventi di musica dal vivo.",
+  unsub:"Disiscriviti",pref:"Gestisci le preferenze"},
+ en:{from:"From",subj:"Friday, jazz takes over the Cabaret 🎷",prev:"Live trio, limited seats, signature cocktails — we'll be waiting.",
+  kick:"Live music · Friday",when:"FRI 14 JUN · 9:30 PM",
+  body:["Dear member,","On Friday the salon comes alive: a live jazz trio, low light, and our signature cocktails. One of those nights when Monti still feels like 1920s Paris.","Seats are few and go fast — we'd suggest reserving your table."],
+  d1:"Friday 14 June, 9:30 PM (doors 7:00 PM)",d3:"Live jazz trio + DJ set into the night",
+  cta:"Reserve your table",cta2:"Add to calendar",
+  why:"You're receiving this because you're a member of the Cabaret Voltaire circle and chose to get invites to live-music events.",
+  unsub:"Unsubscribe",pref:"Manage preferences"}
+};
+function setL(l){
+ const t=T[l];document.documentElement.lang=l;
+ document.getElementById('bIt').classList.toggle('on',l==='it');
+ document.getElementById('bEn').classList.toggle('on',l==='en');
+ document.getElementById('fromL').textContent=t.from;
+ document.getElementById('subj').textContent=t.subj;
+ document.getElementById('prev').textContent=t.prev;
+ document.getElementById('kick').textContent=t.kick;
+ document.getElementById('when').textContent=t.when;
+ document.getElementById('body').innerHTML=t.body.map(p=>'<p>'+p+'</p>').join('');
+ document.getElementById('d1').textContent=t.d1;
+ document.getElementById('d3').textContent=t.d3;
+ document.getElementById('cta').textContent=t.cta;
+ document.getElementById('cta2').textContent=t.cta2;
+ document.getElementById('why').textContent=t.why;
+ document.getElementById('unsub').textContent=t.unsub;
+ document.getElementById('pref').textContent=t.pref;
+}
+setL('it');
+</script>
+</body>
+</html>
